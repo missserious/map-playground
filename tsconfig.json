@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // Output modern JavaScript; Vite handles latest features
+    "module": "ESNext", // Use native ES modules, compatible with Vite
+    "types": ["jest"], // Jest-Typen global verfügbar
+    "jsx": "react-jsx", // Use React 17+ JSX transform
+    "strict": true, // Enable all strict type checks (includes noImplicitAny, strictFunctionTypes, etc.)
+    "strictNullChecks": true, // Ensure proper handling of null / undefined
+    "noImplicitAny": true, // Variables must have explicit types
+    "noUnusedLocals": true, // Warn about unused local variables
+    "noUnusedParameters": true, // Warn about unused function parameters
+    "noFallthroughCasesInSwitch": true, // Prevent missing break in switch statements
+    "noUncheckedIndexedAccess": true, // Accessing array/object indexes may be undefined; TS will warn
+    "moduleResolution": "node", // Resolve modules like Node.js
+    "esModuleInterop": true, // Allow default imports from CommonJS modules
+    "forceConsistentCasingInFileNames": true, // Prevent import casing mismatches (important for cross-OS)
+    "resolveJsonModule": true, // Allow importing JSON files as modules
+    "isolatedModules": true, // Each file is treated as a separate module (required for Vite + SWC)
+    "incremental": true, // Enable incremental compilation for faster rebuilds
+    "tsBuildInfoFile": ".tsbuildinfo", // Store incremental build info here
+    "skipLibCheck": true, // Skip type checking of node_modules for speed
+    "noEmit": true, // Do not emit JS, Vite handles the bundling
+    "noErrorTruncation": true // Show full error messages instead of truncated ones
+  },
+  "files": [],
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
+}

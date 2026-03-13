@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "yzhang.markdown-all-in-one",
+    "eamodio.gitlens",
+    "orta.vscode-jest",
+    "naumovs.color-highlight"
+  ],
+  "unwantedRecommendations": []
+}

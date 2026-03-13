@@ -1,0 +1,73 @@
+name: Deploy Vite React App to GitHub Pages
+
+# Trigger: only when something is pushed to main
+on:
+  push:
+    branches:
+      - main
+
+# Permissions required for GitHub Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Prevent multiple deploys from running simultaneously
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env: # Force the use of Node24
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      # Fetch the Code from the Repository
+      - name: Checkout Code From Repository
+        uses: actions/checkout@v6
+
+      # Install Node.js + enable npm cache
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: 'npm'
+
+      # Install Dependencies
+      # NOTE: --legacy-peer-deps is required temporarily because some ESLint plugins
+      #       (like eslint-plugin-import) have peerDependencies incompatible with ESLint 10.
+      #       Once upstream packages update their peerDeps, this flag can be removed.
+      - name: Install Dependencies
+        run: npm ci --legacy-peer-deps
+
+        # Run Jest tests before build
+        # TODO: npm run test:ci
+      - name: Run Jest Tests
+        run: npm run test
+
+      # Run Build (tsc + Vite)
+      - name: Build
+        run: npm run build
+
+      # Upload Build output for Deployment
+      # TODO: check if node version warning will disappear
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build # wait for successful build
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Deploy to GitHub Pages
+      # TODO: check if node version warning will disappear
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
