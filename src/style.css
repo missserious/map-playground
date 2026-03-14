@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 @import 'tailwindcss';
+/* Tailwind import */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   margin: 0;
@@ -9,4 +13,26 @@
 
 body {
   font-family: 'Inter', sans-serif;
+}
+
+/* @theme Block mit einer Farbe */
+@theme {
+  /* Background Colors */
+  --color-background-primary: #212c30; /* Standard Background */
+  --color-background-secondary: #1c272c;
+  --color-background-tertiary: #161a1e;
+
+  /* Text Colors */
+  --color-text-primary: #e2edf2; /* Standard Text */
+  --color-text-secondary: #606b71;
+
+  /* Accent Colors */
+  --color-accent: #5497fe; /* Standard Accent → bg-accent */
+  --color-accent-hover: #3b7de3;
+  --color-accent-light: #8ab8ff;
+
+  /* Danger / Error Colors */
+  --color-danger: #df0430; /* Standard Danger → bg-danger */
+  --color-danger-light: #ff506e;
+  --color-danger-dark: #a3021f;
 }
