@@ -4,5 +4,11 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "eslint.run": "onSave",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  // Tailwind v4 uses custom @-rules like @theme, @apply, @layer, @tailwind
+  // VSCode CSS/SCSS/LESS linter doesn’t recognize them by default
+  // Setting unknownAtRules to "ignore" avoids false positive warnings
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore"
 }

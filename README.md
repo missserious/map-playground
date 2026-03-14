@@ -12,9 +12,10 @@ npm install
 npm run dev
 ```
 
-## TODO / Checklist
+## ☆ TODO'S
 
 - [x] Tailwind 4
-  - [x] tailwindcss → Core-Tailwind, @tailwindcss/vite → Vite-Plugin
+  - [x] Tailwindcss → Core-Tailwind, @tailwindcss/vite → Vite-Plugin
+  - [x] Include Custom Color Palette: → tailwind.config.js → style.css → remove warnings(settingsjson)
 - [ ] Maplibre
 - [ ] Mapbox
