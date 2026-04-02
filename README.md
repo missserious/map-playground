@@ -17,5 +17,7 @@ npm run dev
 - [x] Tailwind 4
   - [x] Tailwindcss → Core-Tailwind, @tailwindcss/vite → Vite-Plugin
   - [x] Include Custom Color Palette: → tailwind.config.js → style.css → remove warnings(settingsjson)
+- [x] Dummy test in `__tests__`: Prevents the "Run Jest Tests" job from failing
 - [ ] Maplibre
 - [ ] Mapbox
+- [ ] Pipeline
